@@ -14,6 +14,7 @@ func main() {
 		common_run.RedisLoad(true),
 		common_run.ConfigLoad(true),
 		common_run.MysqlLoad(true),
+
 		common_run.FnRouter(func(engine *gin.Engine) {
 			pkg.MysqlConn.AutoMigrate(new(model.RegisterCenter))
 			engine.NoRoute(func(context *gin.Context) {
