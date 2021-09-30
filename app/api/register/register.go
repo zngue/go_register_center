@@ -8,6 +8,7 @@ import (
 	"github.com/zngue/go_register_center/app/model"
 	"github.com/zngue/go_register_center/app/service"
 	"gorm.io/gorm"
+	"time"
 )
 
 func ApiBase() service.IRegisterCenter {
@@ -26,7 +27,9 @@ func Create(ctx *gin.Context) {
 	var DelReq service.RegisterCenterRequest
 	DelReq.Name = data.Name
 	detailOne, err2 := ApiBase().Detail(DelReq)
+	data.UpdateTime = time.Now().Unix()
 	if err2 == gorm.ErrRecordNotFound {
+		data.AddTime = time.Now().Unix()
 		err := ApiBase().Add(req)
 		api.DataWithErr(ctx, err, req.Data)
 		return
@@ -48,6 +51,7 @@ func Create(ctx *gin.Context) {
 		api.DataWithErr(ctx, err3, nil)
 		return
 	} else {
+		data.AddTime = time.Now().Unix()
 		err := ApiBase().Add(req)
 		api.DataWithErr(ctx, err, req.Data)
 		return
