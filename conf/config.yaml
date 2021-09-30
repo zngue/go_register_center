@@ -1,7 +1,7 @@
 AppMode: debug               # 开发模式, debug, release, test
 AppReadTimeout: 120
 AppWriteTimeout : 120
-AppPort: 6008                  # HTTP绑定端口
+AppPort: 6006                  # HTTP绑定端口
 AppTitle: 注册中心
 AppHost: 127.0.0.1
 AppName: registerCenter              # API Server的名字
