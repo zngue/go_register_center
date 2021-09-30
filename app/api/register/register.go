@@ -62,28 +62,18 @@ func Create(ctx *gin.Context) {
 // Edit  修改数据
 func Edit(ctx *gin.Context) {
 	var req service.RegisterCenterRequest
-	var data model.RegisterCenter
-	if err := ctx.ShouldBind(&data); err != nil {
-		api.Error(ctx, api.Err(err))
-		return
-	}
-	req.ID = data.ID
-	var ReqData map[string]interface{}
-
-	if err := ctx.ShouldBind(&ReqData); err != nil {
-		api.Error(ctx, api.Err(err))
-		return
-	}
-	//这里组装更新的数据  map[string]interface{}   数据和数据库的字段对应就行
 	var updateData map[string]interface{}
-	if ReqData != nil {
-		file := new(code.FileNameChange)
-		for key, val := range ReqData {
-			mpKey := file.Camel2Case(file.Ucfirst(key))
-			updateData[mpKey] = val
+	file := new(code.FileNameChange)
+	form := ctx.Request.Form
+	if form != nil {
+		for key, val := range form { ////这里组装更新的数据  map[string]interface{}   数据和数据库的字段对应就行
+			if len(val) > 0 {
+				mpKey := file.Camel2Case(file.Ucfirst(key))
+				updateData[mpKey] = val[0]
+			}
 		}
 	}
-	//判断where 条件id是否存在
+	//判断where 条件id是否存在  自行更改更新条件
 	if id, ok := updateData["id"]; ok {
 		newID := cast.ToInt(id)
 		if newID <= 0 {
@@ -92,7 +82,6 @@ func Edit(ctx *gin.Context) {
 		}
 		req.ID = newID
 	}
-	//To do where 更新
 	req.Data = updateData
 	err := ApiBase().Save(req)
 	api.DataWithErr(ctx, err, nil)
