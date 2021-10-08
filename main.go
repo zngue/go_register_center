@@ -21,6 +21,9 @@ func main() {
 				api.Success(context, api.Code(500), api.Msg("page is not found"))
 			})
 			router.Router(engine.Group(""))
+			engine.GET("ok", func(context *gin.Context) {
+				api.Success(context,api.Msg("ok"))
+			})
 		}),
 	)
 }
