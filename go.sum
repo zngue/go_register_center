@@ -270,8 +270,6 @@ github.com/wechatpay-apiv3/wechatpay-go v0.2.7/go.mod h1:W8ucVAOCKOii933cWROLaDL
 github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2/go.mod h1:UETIi67q53MR2AWcXfiuqkDkRtnGDLqkBTpCHuJHxtU=
 github.com/xinliangnote/go-util v0.0.0-20200323134426-527984dc34bf/go.mod h1:3ZornrplU9tYj9ar9jchik1XPQ10ZbSXkbgxXR5PVaU=
 github.com/yuin/goldmark v1.2.1/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
-github.com/zngue/go_helper v0.0.0-20210930035714-f59786cc8595 h1:4GX70fValNCwHuFMh/6GKiO+qjB91Wlfr98N5LwLIiI=
-github.com/zngue/go_helper v0.0.0-20210930035714-f59786cc8595/go.mod h1:sNyfxZYaZf8rgIhCL3lkPtUOHBB47e9WisoDakj7LS8=
 github.com/zngue/go_helper v1.0.7 h1:/H643zQ5rNCtgk8uv1B3fwrbkXswTUJ/DL/MX6PhsQg=
 github.com/zngue/go_helper v1.0.7/go.mod h1:sNyfxZYaZf8rgIhCL3lkPtUOHBB47e9WisoDakj7LS8=
 go.etcd.io/bbolt v1.3.2/go.mod h1:IbVyRI1SCnLcuJnV2u8VeU0CEYM7e686BmAb1XKL+uU=

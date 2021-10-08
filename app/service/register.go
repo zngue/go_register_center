@@ -37,7 +37,7 @@ func (i *RegisterCenter) Add(request RegisterCenterRequest) error {
 // Save 修改
 func (i *RegisterCenter) Save(request RegisterCenterRequest) error {
 	request.ReturnType = 3
-	return pkg.MysqlConn.Model(i.GetModel()).Updates(request.Data).Error
+	return request.Init(pkg.MysqlConn.Model(i.GetModel()), request).Updates(request.Data).Error
 }
 func (i *RegisterCenter) List(request RegisterCenterRequest) (*[]model.RegisterCenter, error) {
 	var list []model.RegisterCenter
